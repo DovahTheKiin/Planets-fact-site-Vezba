@@ -27,7 +27,7 @@ hamburgerMenu.addEventListener('click', () => {
     hamburgerMenu.classList.toggle("active-menu");
     mobileMenu.classList.toggle("hidden");
 })
-let internalImage = "http://127.0.0.1:5500/images/planet-mercury-internal.svg";
+let internalImage = "/images/planet-mercury-internal.svg";
 let normalImage;
 const clickHandler = (ev) => {
     for (const btn of overviewMenuLinks) {
@@ -104,8 +104,8 @@ function jsonDataFetch() {
         return response.json();
     })
     .then(function (jobs) {
-        planetImage.src = `http://127.0.0.1:5500/${jobs[i].images.planet}`;
-        geologyImage.src = `http://127.0.0.1:5500/${jobs[i].images.geology}`;
+        planetImage.src = `${jobs[i].images.planet}`;
+        geologyImage.src = `${jobs[i].images.geology}`;
         planetName.innerHTML = `${jobs[i].name}`;
         planetDescription.innerHTML = `${jobs[i].overview.content}`;
         source.href = `${jobs[i].overview.source}`;
@@ -150,8 +150,8 @@ function jsonDataFetch() {
         revolution.innerHTML = `${jobs[i].revolution}`;
         radius.innerHTML = `${jobs[i].radius}`;
         average.innerHTML = `${jobs[i].temperature}`;
-        normalImage = `http://127.0.0.1:5500/${jobs[i].images.planet}`;
-        internalImage = `http://127.0.0.1:5500/${jobs[i].images.internal}`;
+        normalImage = `${jobs[i].images.planet}`;
+        internalImage = `${jobs[i].images.internal}`;
         if(overviewListButtons[1].classList.contains("focused-mercury")) {
             planetImage.src = `${internalImage}`;
             planetDescription.innerHTML = `${jobs[i].structure.content}`;
